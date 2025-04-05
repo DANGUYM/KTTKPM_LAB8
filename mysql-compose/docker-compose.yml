@@ -1,0 +1,17 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: my-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root               # mật khẩu cho root
+      MYSQL_DATABASE: mydb                    # tên database bạn muốn tạo
+      MYSQL_USER: user                        # user bạn muốn tạo
+      MYSQL_PASSWORD: password                # mật khẩu cho user
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql             # lưu trữ dữ liệu lâu dài
+
+volumes:
+  mysql_data:
